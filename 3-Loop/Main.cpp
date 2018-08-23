@@ -157,7 +157,7 @@ int main()
 		}
 	}
 
-	std::cout << "Your largest number was " << largest << std::endl;
+	std::cout << "Your largest number was " << smallest << std::endl;
 
 
 	// Even or Odd 2: Electric Boogaloo
