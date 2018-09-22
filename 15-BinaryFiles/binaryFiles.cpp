@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include "bFiles.h"
+#include <windows.h>
 
 using namespace std;
 
@@ -66,4 +67,35 @@ bool readSaveData(string filePath)
 }
 */
 
-// Monster Creature Quest
+// Monster Creature Quest (not in use)
+/*
+bool saveMonster(string filePath, monster saveMonsterArray[], int arrSize)
+{
+	std::ofstream fout;
+
+	fout.open(filePath + ".bin", std::ios::out | std::ios::binary);
+
+	if (fout.fail())
+	{
+		std::cout << "File not found." << std::endl;
+		return 0;
+	}
+		for (int i = 0; i < arrSize; i++)
+		{
+			fout.write((char*)&saveMonsterArray[i], sizeof(monster));
+		}
+
+		fout.flush();
+		fout.close();
+	
+}
+*/
+
+void outputColor(std::string myText, int col)
+{
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), col);
+
+	std::cout << myText.c_str() << std::endl;
+
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 0x07);
+}

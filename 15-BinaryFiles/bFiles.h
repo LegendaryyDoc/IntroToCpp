@@ -30,3 +30,5 @@ bool readSaveData(string fileParh);
 	// browse monsters
 
 	// Exit
+
+void outputColor(std::string myText, int col);

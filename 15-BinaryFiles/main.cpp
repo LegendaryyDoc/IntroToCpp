@@ -1,7 +1,8 @@
-#include <iostream>
+﻿#include <iostream>
 #include <fstream>
 #include <string>
 #include "bFiles.h"
+#include "monster.h"
 
 using namespace std;
 
@@ -58,6 +59,7 @@ std::string read(std::string filePath)
 }													 
 													 
 /*--------------------------------------------------*/
+int GREEN = 0x02;
 
 int main()
 {
@@ -87,18 +89,73 @@ int main()
 	*/
 
 	//Monster Creature Quest
-	system("color 2");
-	std::cout << "  .----------------.  .----------------.  .----------------.  " << std::endl;
-	std::cout << " | .--------------. || .--------------. || .--------------. | " << std::endl;
-	std::cout << " | | ____    ____ | || |     ______   | || |    ___       | | " << std::endl;
-	std::cout << " | ||_   \\  /   _|| || |   .' ___  |  | || |  .'   '.     | | " << std::endl;
-	std::cout << " | |  |   \\/   |  | || |  / .'   \\_|  | || | /  .-.  \\    | | " << std::endl;
-	std::cout << " | |  | |\\  /| |  | || |  | |         | || | | |   | |    | | " << std::endl;
-	std::cout << " | | _| |_\\/_| |_ | || |  \\ `.___.'\\  | || | \\  `-'  \\_   | | " << std::endl;
-	std::cout << " | ||_____||_____|| || |   `._____.'  | || |  `.___.\\__|  | | " << std::endl;
-	std::cout << " | |              | || |              | || |              | | " << std::endl;
-	std::cout << " | '--------------' || '--------------' || '--------------' | " << std::endl;
-	std::cout << "  '----------------'  '----------------'  '----------------'  " << std::endl;
-	std::cout << "Welcome to Monster Creature Quest." << std::endl;
+	std::string userFilePath;
+	int userInput = -1;
+	char userTextInsert[500] = " ";
+	char userMName[50] = " ";
+
+	int i;
+
+	bool exit = false;
+
+
+	outputColor("              Welcome to Monster Creature Quest\n", GREEN);
+	outputColor("  .----------------.  .----------------.  .----------------.  ", GREEN);
+	outputColor(" | .--------------. || .--------------. || .--------------. | ", GREEN);
+	outputColor(" | | ____    ____ | || |     ______   | || |    ___       | | ", GREEN);
+	outputColor(" | ||_   \\  /   _|| || |   .' ___  |  | || |  .'   '.     | | ", GREEN);
+	outputColor(" | |  |   \\/   |  | || |  / .'   \\_|  | || | /  .-.  \\    | | ", GREEN);
+	outputColor(" | |  | |\\  /| |  | || |  | |         | || | | |   | |    | | ", GREEN);
+	outputColor(" | | _| |_\\/_| |_ | || |  \\ `.___.'\\  | || | \\  `-'  \\_   | | ", GREEN);
+	outputColor(" | ||_____||_____|| || |   `._____.'  | || |  `.___.\\__|  | | ", GREEN);
+	outputColor(" | |              | || |              | || |              | | ", GREEN);
+	outputColor(" | '--------------' || '--------------' || '--------------' | ", GREEN);
+	outputColor("  '----------------'  '----------------'  '----------------'  ", GREEN);
+	
+	while (!exit)
+	{
+		std::cout << "What would you like to do?\n" << std::endl;
+		std::cout << "1) Add a monster by ID" << std::endl;
+		std::cout << "2) Remove a monster by ID" << std::endl;
+		std::cout << "3) View a monster by ID" << std::endl;
+		std::cout << "4) Browse monsters" << std::endl;
+		std::cout << "5) Exit" << std::endl;
+		std::cin >> userInput;
+
+		if (userInput == 1)
+		{
+			std::cout << "What would you like the file path to be called?" << std::endl;
+			std::cin >> userFilePath;
+
+			std::cout << "What would you like to name the monster?" << std::endl;
+			std::cin >> userMName;
+
+			std::cout << "Write a description for the monster!" << std::endl;
+			std::cin >> userTextInsert;
+			
+				
+				monster myMonster = { userMName, userTextInsert };
+				
+				myMonster.saveMonster(userFilePath);			
+		}
+		if (userInput == 2)
+		{
+			
+		}
+		if (userInput == 3)
+		{
+
+		}
+		if (userInput == 4)
+		{
+
+		}
+		if (userInput == 5)
+		{
+			exit = true;
+		}
+		exit = false;
+	}
+	
 	return 0;
 }
