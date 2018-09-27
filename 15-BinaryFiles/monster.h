@@ -16,6 +16,7 @@ public:
 	bool saveMonster(std::string filePath);
 	bool static removeMonster(std::string filePath);
 	bool static viewMonster(std::string filePath);
+	void static listFile();
 };
 
 

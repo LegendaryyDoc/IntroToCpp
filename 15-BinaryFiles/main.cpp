@@ -125,20 +125,22 @@ int main()
 
 		if (userInput == 1)
 		{
-			std::cout << "What would you like the file path to be called?" << std::endl;
-			std::cin >> userFilePath;
+			std::string monsterID;
+
+			std::cout << "What would you like the ID to be?(1-100)" << std::endl;
+			std::cin >> monsterID;
 
 			std::cout << "What would you like to name the monster?" << std::endl;
-			std::cin >> monsterName;//it does name \n
+			std::cin >> monsterName;
 			std::cin.clear();
-			std::cin.ignore(10000,'\n');
+			std::cin.ignore(10000, '\n');
 			std::cout << "Write a description for the monster!" << std::endl;
 			std::getline(std::cin, userTextInsert, '\n');
-			
-				
-				monster myMonster = { monsterName, userTextInsert };
-				
-				myMonster.saveMonster(userFilePath);			
+
+
+			monster myMonster = { monsterName, userTextInsert };
+
+			myMonster.saveMonster(monsterID);
 		}
 		if (userInput == 2)
 		{
@@ -156,7 +158,7 @@ int main()
 		}
 		if (userInput == 4)
 		{
-
+			monster::listFile();
 		}
 		if (userInput == 5)
 		{
