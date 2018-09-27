@@ -14,8 +14,8 @@ public:
 	std::string descriptor;
 
 	bool saveMonster(std::string filePath);
-	char monsterName[100] = "";
-	char flavorText[600] = "";
+	bool static removeMonster(std::string filePath);
+	bool static viewMonster(std::string filePath);
 };
 
 

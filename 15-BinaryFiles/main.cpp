@@ -90,11 +90,12 @@ int main()
 
 	//Monster Creature Quest
 	std::string userFilePath;
+	std::string userTextInsert;
 	int userInput = -1;
-	char userTextInsert[500] = " ";
-	char userMName[50] = " ";
+	/*char userTextInsert[500] = " ";*/
+	char monsterName[50] = " ";
 
-	int i;
+	
 
 	bool exit = false;
 
@@ -128,23 +129,30 @@ int main()
 			std::cin >> userFilePath;
 
 			std::cout << "What would you like to name the monster?" << std::endl;
-			std::cin >> userMName;
-
+			std::cin >> monsterName;//it does name \n
+			std::cin.clear();
+			std::cin.ignore(10000,'\n');
 			std::cout << "Write a description for the monster!" << std::endl;
-			std::cin >> userTextInsert;
+			std::getline(std::cin, userTextInsert, '\n');
 			
 				
-				monster myMonster = { userMName, userTextInsert };
+				monster myMonster = { monsterName, userTextInsert };
 				
 				myMonster.saveMonster(userFilePath);			
 		}
 		if (userInput == 2)
 		{
-			
+			std::cout << "What file would you like to remove?" << std::endl;
+			std::cin >> userFilePath;
+
+			monster::removeMonster(userFilePath);
 		}
 		if (userInput == 3)
 		{
+			std::cout << "What monster would you like to view?" << std::endl;
+			std::cin >> monsterName;
 
+			monster::viewMonster(monsterName);
 		}
 		if (userInput == 4)
 		{
