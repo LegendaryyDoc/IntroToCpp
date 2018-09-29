@@ -53,13 +53,13 @@ bool monster::saveMonster(std::string filePath)
 bool monster::removeMonster(std::string filePath)
 {
 	std::string fileToDelete;
-	std::ifstream fin("Monsters/" + filePath + ".bin");
+	std::ifstream fin("Monsters\\" + filePath + ".bin");
 
 	if (fin)
 	{
 		fin.close();
 
-		fileToDelete = "Monsters/" + filePath + ".bin";
+		fileToDelete = "Monsters\\" + filePath + ".bin";
 		if (std::remove(fileToDelete.c_str()) == 0)
 		{
 			std::cout << "\nFile deleted!\n" << std::endl;
@@ -84,7 +84,7 @@ bool monster::viewMonster(std::string filePath)
 	monster myMonster;
 	std::ifstream print;
 
-	print.open("Monsters/" + filePath + ".bin", std::ios::in | std::ios::binary);
+	print.open("Monsters\\" + filePath + ".bin", std::ios::in | std::ios::binary);
 	if (print.fail())
 	{
 		std::cout << "File not found!\n" << std::endl;
@@ -124,7 +124,7 @@ void monster::listFile()
 	for (int i = 0; i <= 100; i++)
 	{
 		// open files that match the name
-		fileName = ("Monsters/" + std::to_string(i)) + ".bin";
+		fileName = ("Monsters\\" + std::to_string(i)) + ".bin";
 
 		fin.open(fileName);
 
